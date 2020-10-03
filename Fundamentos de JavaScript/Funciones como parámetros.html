@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Persona {
+            constructor(nombre, apellido) {
+                this.nombre = nombre;
+                this.apellido = apellido;
+            }
+
+            saludar (fn) {
+                console.log(`Me llamo ${this.nombre} ${this.apellido}`)
+
+                if (fn) {
+                    fn (this.nombre, this.apellido)
+                }
+            }
+        }
+
+        class Desarrollador extends Persona{
+            constructor(nombre, apellido) {
+                super(nombre, apellido)
+            }
+
+            saludar (fn) {
+                console.log(`Me llamo ${this.nombre} ${this.apellido}`)
+
+                if (fn) {
+                    fn (this.nombre, this.apellido)
+                }
+            }
+        }
+
+        function responderSaludo (nombre, apellido) {
+            console.log(`Hola, ${nombre} ${apellido}`)
+        }
+
+        var sacha = new Persona("Sacha", "Toro")
+        var tomas = new Desarrollador("Tomás", "Vino")
+
+        sacha.saludar(responderSaludo)
+        tomas.saludar(responderSaludo)
+
+    </script>
+</body>
+
+</html>

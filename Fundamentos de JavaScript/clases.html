@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases</title>
+</head>
+
+<body>
+    <script>
+
+        //Herencia
+        /* function heredaDe (prototipoHijo, prototipoPadre) {
+            var fn = function () {}
+            fn.prototype = prototipoPadre.prototype
+            prototipoHijo.prototype = new fn
+            prototipoHijo.prototype.constructor = prototipoHijo
+        }
+
+        function Persona (nombre, apellido) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
+
+        Persona.prototype.saludar = function () {
+            console.log(`Hola me llamo ${this.nombre} ${this.apellido}`)
+        }
+
+        var sacha = new Persona("Sacha", "Toro")
+
+        function Desarrollador (nombre, apellido) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
+
+        heredaDe (Desarrollador, Persona)
+
+        //Sobreescribimos el método saludar
+        Desarrollador.prototype.saludar = function () {
+            console.log(`Hola me llamo ${this.nombre} ${this.apellido} y soy desarrollador(a)`)
+        } */
+
+        class Persona {
+            constructor(nombre, apellido) {
+                this.nombre = nombre;
+                this.apellido = apellido;
+            }
+
+            saludar () {
+                console.log(`Hola me llamo ${this.nombre} ${this.apellido}`)
+            }
+        }
+
+        //Herencia de manera más fácil
+        class Desarrollador extends Persona{
+            constructor(nombre, apellido) {
+                super(nombre, apellido) //Para poder que funcione la herencia, ya no se usa this para atributos que se hereda
+            }
+
+            saludar () {
+                console.log(`Hola me llamo ${this.nombre} ${this.apellido} y soy desarrollador(a)`)
+            }
+        }
+
+    </script>
+</body>
+
+</html>
